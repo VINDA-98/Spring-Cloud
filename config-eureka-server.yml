@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 7001
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+#Erurka配置
+eureka:
+  instance:
+    #打开其实就是一个监控页面 http://localhost:7001/
+    hostname: vindaboy7001.com #erueka实例服务器地址
+  client:
+    register-with-eureka: false #因为这个模块是服务器,所以不需要在服务器中自己注册自己
+    fetch-registry: false #false 表示当前的程序就是注册中心
+    service-url:
+      #defaultZone :是源码里面默认访问eureka的注册服务器地址,这里拿过来就是设置成为自己需要放置的服务器地址
+      defaultZone: http://vindaboy7002.com:7002/eureka/
+
+---
+server:
+  port: 7001
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+#Erurka配置
+eureka:
+  instance:
+    #打开其实就是一个监控页面 http://localhost:7001/
+    hostname: vindaboy7001.com #erueka实例服务器地址
+  client:
+    register-with-eureka: false #因为这个模块是服务器,所以不需要在服务器中自己注册自己
+    fetch-registry: false #false 表示当前的程序就是注册中心
+    service-url:
+      #defaultZone :是源码里面默认访问eureka的注册服务器地址,这里拿过来就是设置成为自己需要放置的服务器地址
+      defaultZone: http://vindaboy7002.com:7002/eureka/
+

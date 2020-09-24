@@ -1,0 +1,71 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8001
+mybatis:
+  type-aliases-package: top.weidaboy.springcloud.pojo
+  #xml配置文件
+  config-location: classpath:mybatis/mybatis-config.xml
+  #xml映射文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#spring的配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/test?userUnicode=true&characterEncoding=utf-8
+    username: root
+    password: weida
+
+#Erueka配置
+eureka:
+  client:
+    service-url:
+      #defaultZone :是源码里面默认访问eureka的注册服务器地址,这里拿过来就是设置成为自己需要放置的服务器地址
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8001 #别名,修改eureka详细信息
+    prefer-ip-address: true  #显示服务的IP
+
+#info配置
+info:
+  #应用名称
+  app.name: Vinda-springcloud
+  #公司名称
+  company.name: weidaboy.top
+  
+---
+#spring的配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/test?userUnicode=true&characterEncoding=utf-8
+    username: root
+    password: weida
+
+#Erueka配置
+eureka:
+  client:
+    service-url:
+      #defaultZone :是源码里面默认访问eureka的注册服务器地址,这里拿过来就是设置成为自己需要放置的服务器地址
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8001 #别名,修改eureka详细信息
+    prefer-ip-address: true  #显示服务的IP
+
+#info配置
+info:
+  #应用名称
+  app.name: Vinda-springcloud
+  #公司名称
+  company.name: weidaboy.top
