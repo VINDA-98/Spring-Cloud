@@ -1,0 +1,9 @@
+#系统级别的配置
+spring:
+  cloud:
+    config:
+      name: config-client #需要的文档资源名称，不加后缀的
+      profile: dev   #配置文件
+      label: master  #分支
+      uri: http://localhost:3344/ #就是到时候服务的地址
+

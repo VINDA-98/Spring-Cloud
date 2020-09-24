@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri:  http://localhost:3344/
+      label: master
+      name: config-dept-consumer
+      profile: dev
