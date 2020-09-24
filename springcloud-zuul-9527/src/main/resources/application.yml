@@ -1,0 +1,32 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: springcloud-zuul
+
+#erueka
+#Erueka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+      #defaultZone :是源码里面默认访问eureka的注册服务器地址,这里拿过来就是设置成为自己需要放置的服务器地址
+  instance:
+    instance-id: zuul9527.com #别名,修改eureka详细信息
+    prefer-ip-address: true  #显示服务的IP
+
+#info配置
+info:
+  #应用名称
+  app.name: Vinda-springcloud-zuul9527
+  #公司名称
+  company.name: weidaboy.top
+#路由设置
+zuul:
+  routes:
+    mydept.serviceID: springcloud-provider-dept
+    mydept.path: /mydept/**
+  #选择哪些服务被忽略服务名访问，只能通过指定域名路径访问，路由网关访问
+  ignored-services: springcloud-provider-dept
+  # "*"
+  prefix: /vinda

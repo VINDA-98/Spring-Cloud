@@ -1,0 +1,14 @@
+server:
+  port: 80
+#eureka配置
+eureka:
+  client:
+    #不注册自己，因为是客户端，负责消费服务，不是提供服务
+    register-with-eureka: false
+    service-url:
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://vindaboy7001.com:7001/eureka/,http://vindaboy7002.com:7002/eureka/
+feign:
+  hystrix:
+    enabled: true
+
